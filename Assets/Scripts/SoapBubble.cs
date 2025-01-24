@@ -54,6 +54,7 @@ public class SoapBubble : MonoBehaviour
     {
         m_move = false;
     }
+
     private void Update()
     {
         if (m_move == false)
