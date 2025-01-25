@@ -170,6 +170,8 @@ MonoBehaviour:
   attackAction: {fileID: -3790703017513249983, guid: a1b2b52e4b7c4fb43b080fd3883b6dec, type: 3}
   invinPowerUpAction: {fileID: 3773622582500070603, guid: a1b2b52e4b7c4fb43b080fd3883b6dec, type: 3}
   speedPowerUpAction: {fileID: -7481525515056130265, guid: a1b2b52e4b7c4fb43b080fd3883b6dec, type: 3}
+  mouseTargetAction: {fileID: 1215027616156937091, guid: a1b2b52e4b7c4fb43b080fd3883b6dec, type: 3}
+  controllerTargetAction: {fileID: 5374315713964325699, guid: a1b2b52e4b7c4fb43b080fd3883b6dec, type: 3}
   defaultFloatSpeed: 5
   floatieness: 7.5
   duckTransform: {fileID: 5992713559497377624}

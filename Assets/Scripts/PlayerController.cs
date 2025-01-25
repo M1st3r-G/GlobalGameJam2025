@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private InputActionReference attackAction;
     [SerializeField] private InputActionReference invinPowerUpAction;
     [SerializeField] private InputActionReference speedPowerUpAction;
+    [SerializeField] private InputActionReference mouseTargetAction;
+    [SerializeField] private InputActionReference controllerTargetAction;
     
     [Header("Movement")] [SerializeField] private float defaultFloatSpeed = 1f;
     [SerializeField] private float floatieness = 0.1f;
@@ -77,6 +79,8 @@ public class PlayerController : MonoBehaviour
         SetDefaultBubble();
         
         movementAction.action.Enable();
+        mouseTargetAction.action.Enable();
+        controllerTargetAction.action.Enable();
         attackAction.action.Enable();
         attackAction.action.performed += Attack;
         invinPowerUpAction.action.Enable();
@@ -107,11 +111,24 @@ public class PlayerController : MonoBehaviour
         TriggerSuperSpeed();
     }
 
-    private void Attack(InputAction.CallbackContext obj)
+    private void Attack(InputAction.CallbackContext ctx)
     {
+        Vector2 direction;
+        if (Gamepad.current == null)
+        {
+            direction = (Vector2)Camera.main.ScreenToWorldPoint(mouseTargetAction.action.ReadValue<Vector2>()) - (Vector2)transform.position;
+        }
+        else
+        {
+            Vector2 inputValue = controllerTargetAction.action.ReadValue<Vector2>();
+            direction = inputValue.magnitude > .1f ? inputValue : m_lastDirection;
+        }
+        
+        direction.Normalize();
+        
         LooseHealth(10);
-        GameObject tmp = Instantiate(projectilePrefab, transform.position + (Vector3)m_lastDirection*0.5f, Quaternion.identity);
-        tmp.GetComponent<Rigidbody2D>().velocity = m_lastDirection.normalized * projectileSpeed;
+        GameObject tmp = Instantiate(projectilePrefab, transform.position + (Vector3)direction*0.5f, Quaternion.identity);
+        tmp.GetComponent<Rigidbody2D>().velocity = direction * projectileSpeed;
     }
 
     public void AddPushForce(Vector2 force) => m_lastDirection += force;
