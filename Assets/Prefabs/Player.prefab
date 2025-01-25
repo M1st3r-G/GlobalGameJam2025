@@ -184,9 +184,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3236d25d73a667498d848977c60c700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultFloatSpeed: 5
   movementAction: {fileID: -3893391318621468819, guid: a1b2b52e4b7c4fb43b080fd3883b6dec, type: 3}
   attackAction: {fileID: -3790703017513249983, guid: a1b2b52e4b7c4fb43b080fd3883b6dec, type: 3}
+  invinPowerUpAction: {fileID: 3773622582500070603, guid: a1b2b52e4b7c4fb43b080fd3883b6dec, type: 3}
+  speedPowerUpAction: {fileID: -7481525515056130265, guid: a1b2b52e4b7c4fb43b080fd3883b6dec, type: 3}
+  defaultFloatSpeed: 5
   floatieness: 7.5
   maxHealth: 100
   shrinkSpeed: 5

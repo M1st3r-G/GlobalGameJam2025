@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,30 +9,83 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Input")][SerializeField] private InputActionReference movementAction;
     [SerializeField] private InputActionReference attackAction;
+    [SerializeField] private InputActionReference invinPowerUpAction;
+    [SerializeField] private InputActionReference speedPowerUpAction;
+    
     [Header("Movement")] [SerializeField] private float defaultFloatSpeed = 1f;
     [SerializeField] private float floatieness = 0.1f;
+    
     [Header("Health")][SerializeField] private float maxHealth = 100f;
     [SerializeField] private float shrinkSpeed = 1f;
     [SerializeField] private Transform bubble;
+    
     [Header("Projectile")] [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private float projectileSpeed = 10;
-
+    
+    [Header("UI")][SerializeField] private TextMeshProUGUI invinText;
+    [SerializeField] private TextMeshProUGUI speedText;
     public float stamina => m_health / maxHealth;
     
     private Rigidbody2D m_rigidbody;
     private float m_health;
-
     private Vector2 m_lastDirection;
+
     private bool m_isInvincible;
+    public void AddInvincibility() => invcibilityAmount++;
+    private int invcibilityAmount
+    {
+        get => m_invcibilityAmount;
+        set
+        {
+            m_invcibilityAmount = value;
+            invinText.text = value.ToString();
+        }
+    }
+    private int m_invcibilityAmount;
+
+    public void AddSuperSpeed() => superSpeedAmount++;
+    private int superSpeedAmount
+    {
+        get => m_superSpeedAmount;
+        set
+        {
+            m_superSpeedAmount = value;
+            speedText.text = value.ToString();
+        }
+    }
+    private int m_superSpeedAmount;
 
     private void Awake()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_health = maxHealth;
         
+        //TODO DEBUG
+        invcibilityAmount = superSpeedAmount = 4;
+        
         movementAction.action.Enable();
         attackAction.action.Enable();
         attackAction.action.performed += Attack;
+        invinPowerUpAction.action.Enable();
+        invinPowerUpAction.action.performed += OnTriggerInvincibilityInput;
+        speedPowerUpAction.action.Enable();
+        speedPowerUpAction.action.performed += OnTriggerSpeedInput;
+    }
+
+    private void OnTriggerInvincibilityInput(InputAction.CallbackContext ctx)
+    {
+        if (invcibilityAmount <= 0) return;
+        
+        invcibilityAmount--;
+        TriggerInvincibility();
+    }
+
+    private void OnTriggerSpeedInput(InputAction.CallbackContext ctx)
+    {
+        if(superSpeedAmount <= 0)return;
+        
+        superSpeedAmount--;
+        TriggerSuperSpeed();
     }
 
     private void Attack(InputAction.CallbackContext obj)
@@ -84,13 +138,13 @@ public class PlayerController : MonoBehaviour
 
     public void TriggerHealing() => m_health += 25f;
 
-    public void TriggerSuperSpeed()
+    private void TriggerSuperSpeed()
     {
         defaultFloatSpeed *= 2f;
         StartCoroutine(BetterInvoke(3f, () => defaultFloatSpeed /= 2f));
     }
-    
-    public void TriggerInvincibility()
+
+    private void TriggerInvincibility()
     {
         SetInvincible(true);
         StartCoroutine(BetterInvoke(5f, () => SetInvincible(false)));
