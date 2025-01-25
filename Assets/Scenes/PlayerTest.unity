@@ -441,7 +441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e53a2c7ffc4f4b61bdfad4a1ca20ed11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceMultiplier: 1
+  forceMultiplier: 3
 --- !u!114 &336693962 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6240705222360743582, guid: a83c0642d49ef5143801ca191638163d, type: 3}

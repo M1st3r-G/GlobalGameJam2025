@@ -92,6 +92,8 @@ public class PlayerController : MonoBehaviour
         tmp.GetComponent<Rigidbody2D>().velocity = m_lastDirection.normalized * projectileSpeed;
     }
 
+    public void AddPushForce(Vector2 force) => m_lastDirection += force;
+
     private void Update()
     {
         if (!m_isInvincible)
