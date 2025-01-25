@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour
     
     [Header("UI")][SerializeField] private TextMeshProUGUI invinText;
     [SerializeField] private TextMeshProUGUI speedText;
+
+    [SerializeField] private VisualBubble normal;
+    
     public float stamina => m_health / maxHealth;
     
     private Rigidbody2D m_rigidbody;
@@ -55,6 +58,8 @@ public class PlayerController : MonoBehaviour
     }
     private int m_superSpeedAmount;
 
+    private bool m_isInPowerUp;
+    
     private void Awake()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
@@ -73,7 +78,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerInvincibilityInput(InputAction.CallbackContext ctx)
     {
-        if (invcibilityAmount <= 0) return;
+        if (invcibilityAmount <= 0 || m_isInPowerUp) return;
         
         invcibilityAmount--;
         TriggerInvincibility();
@@ -81,7 +86,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerSpeedInput(InputAction.CallbackContext ctx)
     {
-        if(superSpeedAmount <= 0)return;
+        if(superSpeedAmount <= 0 || m_isInPowerUp) return;
         
         superSpeedAmount--;
         TriggerSuperSpeed();
@@ -137,13 +142,23 @@ public class PlayerController : MonoBehaviour
     private void TriggerSuperSpeed()
     {
         defaultFloatSpeed *= 2f;
-        StartCoroutine(BetterInvoke(3f, () => defaultFloatSpeed /= 2f));
+        m_isInPowerUp = true;
+        StartCoroutine(BetterInvoke(3f, () =>
+        {
+            defaultFloatSpeed /= 2f;
+            m_isInPowerUp = false;
+        }));
     }
 
     private void TriggerInvincibility()
     {
         SetInvincible(true);
-        StartCoroutine(BetterInvoke(5f, () => SetInvincible(false)));
+        m_isInPowerUp = true;
+        StartCoroutine(BetterInvoke(5f, () =>
+        {
+            SetInvincible(false);
+            m_isInPowerUp = false;
+        }));
     }
 
     private static IEnumerator BetterInvoke(float time, Action action)
@@ -151,4 +166,11 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(time);
         action?.Invoke();
     }
+}
+
+[Serializable]
+public struct VisualBubble
+{
+    private Sprite m_front;
+    private Sprite m_back;
 }
