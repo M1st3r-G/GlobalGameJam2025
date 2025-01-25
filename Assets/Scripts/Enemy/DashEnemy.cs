@@ -6,6 +6,7 @@ namespace Enemy
     [RequireComponent(typeof(Animator))] // SpriteRenderer
     public class DashEnemy : MonoBehaviour
     {
+        public float getDamage => damage;
         [SerializeField] private float damage = 10;
         [SerializeField] private float idleTime = 3;
         [SerializeField] private float flightTime = 3;
@@ -48,12 +49,13 @@ namespace Enemy
                 (targetStart, targetEnd) = (targetEnd, targetStart);
             }
         }
-
-        private void OnCollisionEnter2D(Collision2D other)
+        
+        private void OnTriggerEnter2D(Collider2D other)
         {
             if (!other.gameObject.CompareTag("Player")) return;
+            Debug.Log("Plaer entered");
             
-            other.gameObject.GetComponent<PlayerController>().LooseHealth(damage);
+            other.GetComponent<PlayerController>().LooseHealth(damage);
         }
     }
 }
