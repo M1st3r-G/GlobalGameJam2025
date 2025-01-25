@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d55410da6a274910ae6848737bde5c7f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - shieldSprite: {fileID: 21300000, guid: 5d62c012961709146a9ddd1067192460, type: 3}
+  - superSpeedSprite: {fileID: 21300000, guid: 5d62c012961709146a9ddd1067192460, type: 3}
+  - healSprite: {fileID: 21300000, guid: 5d62c012961709146a9ddd1067192460, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
