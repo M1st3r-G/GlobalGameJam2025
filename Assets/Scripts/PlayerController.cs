@@ -3,6 +3,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -14,7 +15,9 @@ public class PlayerController : MonoBehaviour
     
     [Header("Movement")] [SerializeField] private float defaultFloatSpeed = 1f;
     [SerializeField] private float floatieness = 0.1f;
-    
+    [SerializeField] private Transform duckTransform;
+    [SerializeField] private float rotationSpeedMultiplier;
+
     [Header("Health")][SerializeField] private float maxHealth = 100f;
     [SerializeField] private float shrinkSpeed = 1f;
     [SerializeField] private Transform bubble;
@@ -63,7 +66,7 @@ public class PlayerController : MonoBehaviour
     private int m_superSpeedAmount;
 
     private bool m_isInPowerUp;
-    
+
     private void Awake()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
@@ -121,7 +124,13 @@ public class PlayerController : MonoBehaviour
             bubble.localScale = Vector3.one * Mathf.Lerp(1f, 2.5f, m_health/maxHealth);
             if (m_health <= 0) Death();
         }
-        
+
+        duckTransform.Rotate(Vector3.forward,
+            (Mathf.Atan2(m_lastDirection.y, m_lastDirection.x) * Mathf.Rad2Deg - 90) * Time.deltaTime * rotationSpeedMultiplier);
+    }
+
+    private void FixedUpdate()
+    {
         Vector2 mInput = movementAction.action.ReadValue<Vector2>();
         if (mInput == Vector2.zero) 
             m_lastDirection *= 0.999f;
