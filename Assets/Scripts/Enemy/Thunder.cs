@@ -7,5 +7,9 @@ using UnityEngine.Timeline;
 
 public class Thunder : MonoBehaviour
 {
-    private bool canHurtPlayer;
+    [SerializeField] private PlayerController player;
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        player.LooseHealth(5);
+    }
 }
