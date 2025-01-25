@@ -8,7 +8,7 @@ public class FallingFishSpawner : MonoBehaviour
 {
     [SerializeField] private Camera camera;
     [SerializeField] private GameObject fallingFish;
-    [SerializeField] private int shootDelay;
+    [SerializeField] private float shootDelay;
     [SerializeField] private float spawnRangeRight;
     [SerializeField] private float spawnRangeLeft;
     [SerializeField] private float spawnHeight;
