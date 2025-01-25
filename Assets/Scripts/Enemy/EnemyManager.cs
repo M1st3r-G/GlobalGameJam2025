@@ -7,10 +7,7 @@ public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager instance;
     
-    [Header("ThunderCloud")][SerializeField] GameObject thunderCloud;
-    [SerializeField] GameObject thunderAttack;
-    
-    private List<GameObject> thunderClouds = new List<GameObject>();
+    [Header("ThunderCloud")] [SerializeField] GameObject thunderAttack;
 
     private void Awake()
     {
