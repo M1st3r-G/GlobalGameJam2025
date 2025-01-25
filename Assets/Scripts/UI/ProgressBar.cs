@@ -12,9 +12,10 @@ namespace UI
 
         private Slider m_slider;
 
-        private float m_totalHeight = 0;
-        private float m_characterHeight = 0;
-        private float m_progress = 0;
+        public float progress { get; private set; }
+        public float height { get; private set; }
+
+        private float m_totalHeight;
 
         private void Start()
         {
@@ -24,11 +25,11 @@ namespace UI
         private void Update()
         {
             m_totalHeight = m_endPoint.position.y - m_startPoint.position.y;
-            m_characterHeight = m_target.position.y - m_startPoint.position.y;
-            m_progress = Mathf.Clamp01(m_characterHeight / m_totalHeight);
+            height = m_target.position.y - m_startPoint.position.y;
+            progress = Mathf.Clamp01(height / m_totalHeight);
 
 
-            m_slider.value = m_progress;
+            m_slider.value = progress;
         }
     }
 }
