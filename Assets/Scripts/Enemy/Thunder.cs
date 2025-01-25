@@ -8,8 +8,9 @@ using UnityEngine.Timeline;
 public class Thunder : MonoBehaviour
 {
     [SerializeField] private PlayerController player;
+    [SerializeField] private float thunderDamage;
     private void OnCollisionEnter2D(Collision2D other)
     {
-        player.LooseHealth(5);
+        player.LooseHealth(thunderDamage);
     }
 }

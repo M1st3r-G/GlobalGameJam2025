@@ -29,11 +29,9 @@ public class EnemyManager : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(thunderLifespanDead);
-            //ChangeThunderAttack(thunder);
             thunder.SetActive(true);
             print("Show");
             yield return new WaitForSeconds(thunderLifespanAlive);
-            //ChangeThunderAttack(thunder);
             thunder.SetActive(false);
             print("Hide");
             yield return null;

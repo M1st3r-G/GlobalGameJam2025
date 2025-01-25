@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f0c1646f83dec4e9a0e52b93d8684f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 7270244888102955039, guid: de1fa3ef699a18b46affe72a827e2087, type: 3}
+  thunderDamage: 5
 --- !u!61 &6756806884644048532
 BoxCollider2D:
   m_ObjectHideFlags: 0

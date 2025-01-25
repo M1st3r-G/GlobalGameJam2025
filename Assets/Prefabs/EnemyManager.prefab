@@ -44,4 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ef1663b045c5f04daa7f7744d47b29d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thunderAttack: {fileID: 2080079973891962119, guid: d6a07a35150e75a43b5c42949cf6a030, type: 3}
+  thunderLifespanAlive: 1
+  thunderLifespanDead: 1
