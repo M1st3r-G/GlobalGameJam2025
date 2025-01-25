@@ -21,15 +21,9 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    public void Settings()
-    {
-        m_setttingsOn = !m_setttingsOn;
-        optionsMenu.SetActive(m_setttingsOn);
-        mainMenu.SetActive(!m_setttingsOn);
-    }
-
     public void ExitGame()
     {
+        print("Quit!");
         Application.Quit();
     }
 }
