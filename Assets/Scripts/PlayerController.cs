@@ -60,6 +60,8 @@ public class PlayerController : MonoBehaviour
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_health = maxHealth;
         
+        invcibilityAmount = superSpeedAmount = 0;
+        
         movementAction.action.Enable();
         attackAction.action.Enable();
         attackAction.action.performed += Attack;
