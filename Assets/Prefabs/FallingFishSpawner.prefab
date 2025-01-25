@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 0}
   fallingFish: {fileID: 2095999334621853864, guid: 27ee4a4b03be17f42bcb6d7b27f43db2, type: 3}
-  shootDelay: 5
+  shootDelay: 1
   spawnRangeRight: 5
   spawnRangeLeft: -5
   spawnHeight: 7
