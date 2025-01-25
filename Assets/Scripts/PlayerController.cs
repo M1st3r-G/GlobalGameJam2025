@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     [Header("Health")][SerializeField] private float maxHealth = 100f;
     [SerializeField] private float shrinkSpeed = 1f;
     [SerializeField] private Transform bubble;
+    [SerializeField] private SpriteRenderer frontRenderer;
+    [SerializeField] private SpriteRenderer backRenderer;
     
     [Header("Projectile")] [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private float projectileSpeed = 10;
@@ -26,6 +28,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI speedText;
 
     [SerializeField] private VisualBubble normal;
+    [SerializeField] private VisualBubble speedBuffed;
+    [SerializeField] private VisualBubble shieldBuffed;
     
     public float stamina => m_health / maxHealth;
     
@@ -66,6 +70,8 @@ public class PlayerController : MonoBehaviour
         m_health = maxHealth;
         
         invcibilityAmount = superSpeedAmount = 0;
+
+        SetDefaultBubble();
         
         movementAction.action.Enable();
         attackAction.action.Enable();
@@ -74,6 +80,12 @@ public class PlayerController : MonoBehaviour
         invinPowerUpAction.action.performed += OnTriggerInvincibilityInput;
         speedPowerUpAction.action.Enable();
         speedPowerUpAction.action.performed += OnTriggerSpeedInput;
+    }
+
+    private void SetDefaultBubble()
+    {
+        frontRenderer.sprite = normal.front;
+        backRenderer.sprite = normal.back;
     }
 
     private void OnTriggerInvincibilityInput(InputAction.CallbackContext ctx)
@@ -143,8 +155,11 @@ public class PlayerController : MonoBehaviour
     {
         defaultFloatSpeed *= 2f;
         m_isInPowerUp = true;
+        frontRenderer.sprite = speedBuffed.front;
+        backRenderer.sprite = speedBuffed.back;
         StartCoroutine(BetterInvoke(3f, () =>
         {
+            SetDefaultBubble();            
             defaultFloatSpeed /= 2f;
             m_isInPowerUp = false;
         }));
@@ -154,8 +169,11 @@ public class PlayerController : MonoBehaviour
     {
         SetInvincible(true);
         m_isInPowerUp = true;
+        frontRenderer.sprite = shieldBuffed.front;
+        backRenderer.sprite = shieldBuffed.back;
         StartCoroutine(BetterInvoke(5f, () =>
         {
+            SetDefaultBubble();
             SetInvincible(false);
             m_isInPowerUp = false;
         }));
@@ -171,6 +189,6 @@ public class PlayerController : MonoBehaviour
 [Serializable]
 public struct VisualBubble
 {
-    private Sprite m_front;
-    private Sprite m_back;
+    public Sprite front;
+    public Sprite back;
 }
