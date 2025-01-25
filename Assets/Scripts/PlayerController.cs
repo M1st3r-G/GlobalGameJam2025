@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
         if (!m_isInvincible)
         {
             m_health -= Time.deltaTime * shrinkSpeed;
-            bubble.localScale = Vector3.one * Mathf.Lerp(.8f, 4f, m_health/maxHealth);
+            bubble.localScale = Vector3.one * Mathf.Lerp(1f, 2.5f, m_health/maxHealth);
             if (m_health <= 0) Death();
         }
         
@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
         m_rigidbody.velocity = m_lastDirection;
     }
 
-    public void SetInvincible(bool invincible) => m_isInvincible = invincible;
+    private void SetInvincible(bool invincible) => m_isInvincible = invincible;
 
     public void LooseHealth(float amount)
     {

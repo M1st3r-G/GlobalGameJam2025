@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &94741735
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 94741736}
+  m_Layer: 0
+  m_Name: StartHeight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &94741736
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94741735}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &286770573
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,6 +291,22 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &859492245 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7270244888102955039, guid: de1fa3ef699a18b46affe72a827e2087, type: 3}
+  m_PrefabInstance: {fileID: 7731655038094142493}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3236d25d73a667498d848977c60c700, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &859492247 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5474076989550414947, guid: de1fa3ef699a18b46affe72a827e2087, type: 3}
+  m_PrefabInstance: {fileID: 7731655038094142493}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1585361616
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,6 +370,37 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2022876355
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2022876356}
+  m_Layer: 0
+  m_Name: EndHeight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2022876356
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022876355}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -432,6 +510,22 @@ PrefabInstance:
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7199455761679806012, guid: a83c0642d49ef5143801ca191638163d, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 859492245}
+    - target: {fileID: 7498721742979747143, guid: a83c0642d49ef5143801ca191638163d, type: 3}
+      propertyPath: m_target
+      value: 
+      objectReference: {fileID: 859492247}
+    - target: {fileID: 7498721742979747143, guid: a83c0642d49ef5143801ca191638163d, type: 3}
+      propertyPath: m_endPoint
+      value: 
+      objectReference: {fileID: 2022876356}
+    - target: {fileID: 7498721742979747143, guid: a83c0642d49ef5143801ca191638163d, type: 3}
+      propertyPath: m_startPoint
+      value: 
+      objectReference: {fileID: 94741736}
     - target: {fileID: 9143013380195030341, guid: a83c0642d49ef5143801ca191638163d, type: 3}
       propertyPath: m_Name
       value: DefaultCanvas
@@ -506,3 +600,5 @@ SceneRoots:
   - {fileID: 7731655038094142493}
   - {fileID: 3203178574337070739}
   - {fileID: 1585361619}
+  - {fileID: 94741736}
+  - {fileID: 2022876356}

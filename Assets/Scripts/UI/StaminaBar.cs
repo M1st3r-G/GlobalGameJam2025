@@ -1,18 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class StaminaBar : MonoBehaviour
+namespace UI
 {
-    // Start is called before the first frame update
-    void Start()
+    [RequireComponent(typeof(Slider))]
+    public class StaminaBar : MonoBehaviour
     {
-        
-    }
+        [SerializeField] private PlayerController player;
+        private Slider m_staminaBar;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private void Awake() => m_staminaBar = GetComponent<Slider>();
+
+        private void Update() => m_staminaBar.value = player.stamina;
     }
 }
