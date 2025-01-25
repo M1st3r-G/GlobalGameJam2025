@@ -60,9 +60,6 @@ public class PlayerController : MonoBehaviour
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_health = maxHealth;
         
-        //TODO DEBUG
-        invcibilityAmount = superSpeedAmount = 4;
-        
         movementAction.action.Enable();
         attackAction.action.Enable();
         attackAction.action.performed += Attack;
@@ -129,11 +126,6 @@ public class PlayerController : MonoBehaviour
     {
         SetInvincible(true);
         Debug.Log("Death");
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        Debug.Log("Hit: " + other.gameObject.name);
     }
 
     public void TriggerHealing() => m_health += 25f;

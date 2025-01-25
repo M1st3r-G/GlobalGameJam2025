@@ -1,0 +1,59 @@
+using System.Collections;
+using UnityEngine;
+
+namespace Enemy
+{
+    [RequireComponent(typeof(Animator))] // SpriteRenderer
+    public class DashEnemy : MonoBehaviour
+    {
+        [SerializeField] private float damage = 10;
+        [SerializeField] private float idleTime = 3;
+        [SerializeField] private float flightTime = 3;
+        [SerializeField] private AnimationCurve yOffset = AnimationCurve.Linear(0, 0, 0, 0);
+        [SerializeField] private Transform targetStart;
+        [SerializeField] private Transform targetEnd;
+
+        private Animator m_animator;
+        private SpriteRenderer m_renderer;
+
+        private bool flipped
+        {
+            get => m_renderer.flipY; // Later x
+            set => m_renderer.flipY = value;
+        }
+        
+        private void Awake()
+        {
+            m_animator = GetComponent<Animator>();
+            m_renderer = GetComponentInChildren<SpriteRenderer>();
+            flipped = transform.localScale.x < 0;
+        }
+
+        private IEnumerator Start()
+        {
+            while (true)
+            {
+                //m_animator.Play("Idle");
+                yield return new WaitForSeconds(idleTime);
+                //m_animator.Play("Flight");
+                float elapsed = 0; // ToDo test
+                while (elapsed / flightTime < 1)
+                {
+                    elapsed += Time.deltaTime;
+                    m_renderer.transform.localPosition = Vector3.Lerp(targetStart.localPosition, targetEnd.localPosition, elapsed / flightTime) +
+                                         Vector3.up * yOffset.Evaluate(elapsed / flightTime);
+                    yield return null;
+                }
+                flipped = !flipped;
+                (targetStart, targetEnd) = (targetEnd, targetStart);
+            }
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (!other.gameObject.CompareTag("Player")) return;
+            
+            other.gameObject.GetComponent<PlayerController>().LooseHealth(damage);
+        }
+    }
+}
