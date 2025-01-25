@@ -11,24 +11,17 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private float thunderLifespanAlive;
     [SerializeField] private float thunderLifespanDead;
     
-    private GameObject[] thunders;
-    private bool thunderIsOn;
+    private GameObject[] m_thunders;
+    private bool m_thunderIsOn;
 
     private void Awake()
     {
         instance = this;
-        thunders = GameObject.FindGameObjectsWithTag("Thunder");
-        for (int i = 0; i < thunders.Length; i++)
+        m_thunders = GameObject.FindGameObjectsWithTag("Thunder");
+        for (int i = 0; i < m_thunders.Length; i++)
         {
-            StartCoroutine(Attack(thunders[i]));
+            StartCoroutine(Attack(m_thunders[i]));
         }
-    }
-    
-    public void ChangeThunderAttack(GameObject thunder)
-    {
-        thunderIsOn = !thunderIsOn;
-
-        thunder.SetActive(thunderIsOn);
     }
     
     IEnumerator Attack(GameObject thunder)
