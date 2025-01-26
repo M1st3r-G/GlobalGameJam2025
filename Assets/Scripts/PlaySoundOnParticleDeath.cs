@@ -15,14 +15,13 @@ public class PlaySoundOnParticleDeath : MonoBehaviour
         m_particles = new ParticleSystem.Particle[m_particleSystem.main.maxParticles];
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
         int particleCount = m_particleSystem.GetParticles(m_particles);
         for (int i = 0; i < particleCount; i++)
         {
-            if (!(m_particles[i].remainingLifetime <= 0)) continue;
+            if (!(m_particles[i].remainingLifetime <= Time.fixedDeltaTime)) continue;
             
-            Debug.LogError("Particle Death");
             Vector3 particlePosition = transform.TransformPoint(m_particles[i].position);
             particlePosition.z = 0;
             AudioSource.PlayClipAtPoint(soundToPlay, particlePosition, volume);
