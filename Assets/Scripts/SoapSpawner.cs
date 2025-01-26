@@ -38,13 +38,16 @@ public class SoapSpawner : MonoBehaviour
     {
         while (true)
         {
-            if (m_spawn == true)
+            if (!m_spawn)
             {
-                // play sound
-                // play animation
-                GameObject newBubblePrefab = Instantiate(m_soapPrefab, m_spawnPoint.position, Quaternion.identity, transform);
-                yield return new WaitForSeconds(m_timer);
+                yield return null;
+                continue;
             }
+            
+            // play sound
+            // play animation
+            GameObject newBubblePrefab = Instantiate(m_soapPrefab, m_spawnPoint.position, Quaternion.identity, transform);
+            yield return new WaitForSeconds(m_timer);
         }
     }
 }
