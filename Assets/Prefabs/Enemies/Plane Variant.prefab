@@ -114,7 +114,7 @@ PrefabInstance:
       objectReference: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 6889657842176131513, guid: 55ae2197c4931a148b4c05ac9034f78d, type: 3}
       propertyPath: m_Name
-      value: PlaneEnemy Variant
+      value: Plane Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7888450434521766652, guid: 55ae2197c4931a148b4c05ac9034f78d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -175,7 +175,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.1090188, y: 0.098117076}
