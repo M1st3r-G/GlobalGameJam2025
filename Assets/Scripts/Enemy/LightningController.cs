@@ -6,6 +6,9 @@ namespace Enemy
     [RequireComponent(typeof(EdgeCollider2D))]
     public class LightningController : MonoBehaviour
     {
+        [SerializeField] private GameObject lightningShort;
+        [SerializeField] private GameObject lightningLong;
+        
         private LightningStorm m_parent;
         private EdgeCollider2D m_collider;
         private Transform m_startTransform;
@@ -17,7 +20,8 @@ namespace Enemy
         {
             m_collider = GetComponent<EdgeCollider2D>();
             m_collider.isTrigger = true;
-            m_visual = transform.GetChild(0).gameObject;
+            lightningLong.SetActive(false);
+            lightningShort.SetActive(false);
         }
 
         public void SetUp(Transform cloud, Transform cloud1, LightningStorm thunder)
@@ -28,11 +32,14 @@ namespace Enemy
             StartCoroutine(AttackLoop());
             m_startTransform = cloud;
             m_endTransform = cloud1;
-
+            
             Vector3 cloudDelta = cloud1.position - cloud.position;
-            m_visual.transform.localScale = new Vector3(cloudDelta.magnitude, 0.1f, 0f);
+            m_visual = cloudDelta.magnitude > 5.05f ? lightningLong : lightningShort;
+            
+            //m_visual.transform.localScale = new Vector3(cloudDelta.magnitude, 1f, 1f);
             m_visual.transform.localPosition = cloud.position + cloudDelta / 2f;
-            m_visual.transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(cloudDelta.y, cloudDelta.x)*Mathf.Rad2Deg);
+            float calcAngle = Mathf.Atan2(cloudDelta.y, cloudDelta.x)*Mathf.Rad2Deg + 45f;
+            m_visual.transform.rotation = Quaternion.Euler(0f, 0f, calcAngle);
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -47,7 +54,7 @@ namespace Enemy
         private void CustomSetActive(bool active)
         {
             m_collider.enabled = active;
-            m_visual.SetActive(active);
+            m_visual?.SetActive(active);
         }
 
         private IEnumerator AttackLoop()
