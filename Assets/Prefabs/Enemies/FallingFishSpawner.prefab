@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f5ca27c9f5de86428800c6fa48958fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallingFish: {fileID: 2095999334621853864, guid: 27ee4a4b03be17f42bcb6d7b27f43db2, type: 3}
+  fallingFish: {fileID: 1772752063834958405, guid: 7ff41522e48c5a64aa1e9678b8501531, type: 3}
   shootDelay: 3
   spawnRangeRight: 5
   spawnRangeLeft: -5
