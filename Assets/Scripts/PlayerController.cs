@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
+using UnityEngine.Jobs;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -32,9 +34,12 @@ public class PlayerController : MonoBehaviour
     [Header("UI")][SerializeField] private TextMeshProUGUI invinText;
     [SerializeField] private TextMeshProUGUI speedText;
 
-    [SerializeField] private VisualBubble normal;
+    [Header("Visual")] [SerializeField] private VisualBubble normal;
     [SerializeField] private VisualBubble speedBuffed;
     [SerializeField] private VisualBubble shieldBuffed;
+    
+    [Header("Death")] [SerializeField] private float resetHeight;
+    [SerializeField] private Transform cameraTarget;
     
     public float stamina => m_health / maxHealth;
     
@@ -172,7 +177,41 @@ public class PlayerController : MonoBehaviour
     private void Death()
     {
         SetInvincible(true);
+        
+        movementAction.action.Disable();
+        mouseTargetAction.action.Disable();
+        controllerTargetAction.action.Disable();
+        attackAction.action.Disable();
+        invinPowerUpAction.action.Disable();
+        speedPowerUpAction.action.Disable();
+        
+        List<Collider2D> tmp = new();
+        m_rigidbody.GetAttachedColliders(tmp);
+        foreach (Collider2D coll in tmp) coll.enabled = false;
+        
+        frontRenderer.enabled = false;
+        backRenderer.enabled = false;
+        
+        cameraTarget.localPosition *= -1f;
+        
+        StartCoroutine(WaitForReset());
         Debug.Log("Death");
+    }
+
+    private IEnumerator WaitForReset()
+    {
+        while (transform.position.y > resetHeight)
+        {
+            m_lastDirection += (new Vector2(0, resetHeight) - (Vector2)transform.position).normalized * Time.deltaTime;
+            yield return null;
+        }
+
+        transform.position = new Vector3(0, resetHeight, 0);
+        m_rigidbody.velocity = Vector2.zero;
+        m_rigidbody.simulated = false;
+        
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void TriggerHealing() => m_health += 25f;
