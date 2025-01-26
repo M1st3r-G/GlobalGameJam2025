@@ -814,6 +814,7 @@ GameObject:
   - component: {fileID: 8701014662480881394}
   - component: {fileID: 231361323867476326}
   - component: {fileID: 7498721742979747143}
+  - component: {fileID: 1408471861068293905}
   m_Layer: 5
   m_Name: ProgressBar
   m_TagString: Untagged
@@ -909,6 +910,29 @@ MonoBehaviour:
   m_target: {fileID: 0}
   m_startPoint: {fileID: 0}
   m_endPoint: {fileID: 0}
+--- !u!114 &1408471861068293905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6040401333964399414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07ad373f4daa62e40ad8ba572f8153e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogText: {fileID: 2076787839468117163}
+  dialogSlider: {fileID: 231361323867476326}
+  dialog:
+  - That's one small step for a duck, one giant leap into the unknown.
+  - Oh boy, guess I am in for a ride ...
+  - I was not prepared for this forecast today!
+  - Half way there ...
+  - I better not look down now ...
+  - Space? Space! Spaaaaaaaaaaaaaaaceeeeee!!!
+  - Almost there ...
+  - The Rubber Duck explored the Universe!
 --- !u!1 &6126996019122911768
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,10 +1034,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Das ist etwas Dialog
+  m_text: 'WASD To Move
+
+
+    Spacebar to Shoot
+
+
+    Aim with your
+
+    Mouse Cursor'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9709dda5c8025bc44be4538677c5812b, type: 2}
+  m_sharedMaterial: {fileID: 1250500150345418400, guid: 9709dda5c8025bc44be4538677c5812b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1037,15 +1069,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0

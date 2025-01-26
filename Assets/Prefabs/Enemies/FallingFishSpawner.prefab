@@ -97,9 +97,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f5ca27c9f5de86428800c6fa48958fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
+  followCamera: {fileID: 0}
   fallingFish: {fileID: 2095999334621853864, guid: 27ee4a4b03be17f42bcb6d7b27f43db2, type: 3}
   shootDelay: 1
   spawnRangeRight: 5
   spawnRangeLeft: -5
   spawnHeight: 7
+  waitDelay: 0
+  chapters: 8
+  currentProgress: {fileID: 0}
+  checkmark: 0000000001010101
