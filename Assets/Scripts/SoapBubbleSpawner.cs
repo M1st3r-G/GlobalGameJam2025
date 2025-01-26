@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(ParticleSystem))]
-public class PlaySoundOnParticleDeath : MonoBehaviour
+public class SoapBubbleSpawner : MonoBehaviour
 {
     [SerializeField] private AudioClip soundToPlay;
     [SerializeField] private float volume = 1.0f;
