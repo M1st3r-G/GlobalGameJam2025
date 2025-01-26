@@ -303,10 +303,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FallingFishSpawner
       objectReference: {fileID: 0}
-    - target: {fileID: 7582793256159808322, guid: 7bf11d55c0c3c4141b3b94624b51729a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -388,15 +384,15 @@ PrefabInstance:
       objectReference: {fileID: 1249381888}
     - target: {fileID: 3748870418048932926, guid: 5c0b496facbd18941ad2c37d63c5051c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.394853
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3748870418048932926, guid: 5c0b496facbd18941ad2c37d63c5051c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.96
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 3748870418048932926, guid: 5c0b496facbd18941ad2c37d63c5051c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.22688058
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3748870418048932926, guid: 5c0b496facbd18941ad2c37d63c5051c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -429,14 +425,6 @@ PrefabInstance:
     - target: {fileID: 3788310943166484026, guid: 5c0b496facbd18941ad2c37d63c5051c, type: 3}
       propertyPath: m_Name
       value: Cameras
-      objectReference: {fileID: 0}
-    - target: {fileID: 5405033327945488642, guid: 5c0b496facbd18941ad2c37d63c5051c, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
-      value: 127.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 5405033327945488642, guid: 5c0b496facbd18941ad2c37d63c5051c, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
-      value: 127.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -850,15 +838,7 @@ PrefabInstance:
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3409934035052691001, guid: a83c0642d49ef5143801ca191638163d, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5966081470091952804, guid: a83c0642d49ef5143801ca191638163d, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160583852811080869, guid: a83c0642d49ef5143801ca191638163d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
@@ -962,7 +942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5474076989550414947, guid: de1fa3ef699a18b46affe72a827e2087, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.53
+      value: -2.8
       objectReference: {fileID: 0}
     - target: {fileID: 5474076989550414947, guid: de1fa3ef699a18b46affe72a827e2087, type: 3}
       propertyPath: m_LocalPosition.z
