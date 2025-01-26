@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(ParticleSystem))]
@@ -26,5 +27,25 @@ public class PlaySoundOnParticleDeath : MonoBehaviour
             particlePosition.z = 0;
             AudioSource.PlayClipAtPoint(soundToPlay, particlePosition, volume);
         }
+    }
+
+    private void OnBecameInvisible()
+    {
+        StartCoroutine(FadeOut());
+    }
+
+    private IEnumerator FadeOut()
+    {
+        float startVolume = volume;
+        float elapsedTime = 0.0f;
+        
+        while (elapsedTime < 5f)
+        {
+            elapsedTime += Time.fixedDeltaTime;
+            volume = Mathf.Lerp(startVolume, 0.0f, elapsedTime / 5f);
+            yield return null;
+        }
+        
+        Destroy(gameObject);
     }
 }
