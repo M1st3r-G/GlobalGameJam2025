@@ -29,8 +29,11 @@ public class PlaySoundOnParticleDeath : MonoBehaviour
         }
     }
 
-    private void OnBecameInvisible() => StartCoroutine(FadeOut());
-    
+    private void OnBecameInvisible()
+    {
+        if(gameObject.activeSelf) StartCoroutine(FadeOut());
+    }
+
     private IEnumerator FadeOut()
     {
         float startVolume = volume;
