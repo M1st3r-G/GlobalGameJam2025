@@ -46,6 +46,8 @@ public class PlayerController : MonoBehaviour
     private float m_health;
     private Vector2 m_lastDirection;
 
+    private bool m_isInPowerUp;
+    
     private bool m_isInvincible;
     public void AddInvincibility() => invcibilityAmount++;
     private int invcibilityAmount
@@ -71,17 +73,37 @@ public class PlayerController : MonoBehaviour
     }
     private int m_superSpeedAmount;
 
-    private bool m_isInPowerUp;
+    #region Setup
 
     private void Awake()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
-        m_health = maxHealth;
-        
-        invcibilityAmount = superSpeedAmount = 0;
-
         SetDefaultBubble();
+        invcibilityAmount = superSpeedAmount = 0;
+    }
+
+    private void SetDefaultBubble()
+    {
+        frontRenderer.sprite = normal.front;
+        backRenderer.sprite = normal.back;
+    }
+
+    private IEnumerator Start()
+    {
+        while (m_health < maxHealth)
+        {
+            m_health += Time.deltaTime * shrinkSpeed * 10;
+            bubble.localScale = Vector3.one * Mathf.Lerp(1f, 2.5f, m_health/maxHealth); 
+            yield return null;
+        }
         
+        m_health = maxHealth;
+
+        EnableInput();
+    }
+
+    private void EnableInput()
+    {
         movementAction.action.Enable();
         mouseTargetAction.action.Enable();
         controllerTargetAction.action.Enable();
@@ -93,11 +115,23 @@ public class PlayerController : MonoBehaviour
         speedPowerUpAction.action.performed += OnTriggerSpeedInput;
     }
 
-    private void SetDefaultBubble()
+    private void DisableInput()
     {
-        frontRenderer.sprite = normal.front;
-        backRenderer.sprite = normal.back;
+        movementAction.action.Disable();
+        mouseTargetAction.action.Disable();
+        controllerTargetAction.action.Disable();
+        attackAction.action.Disable();
+        invinPowerUpAction.action.Disable();
+        speedPowerUpAction.action.Disable();
+        attackAction.action.performed -= Attack;
+        invinPowerUpAction.action.performed -= OnTriggerInvincibilityInput;
+        speedPowerUpAction.action.performed -= OnTriggerSpeedInput;
     }
+    
+
+    #endregion
+
+    #region PowerUps
 
     private void OnTriggerInvincibilityInput(InputAction.CallbackContext ctx)
     {
@@ -107,6 +141,8 @@ public class PlayerController : MonoBehaviour
         TriggerInvincibility();
     }
 
+    private void SetInvincible(bool invincible) => m_isInvincible = invincible;
+    
     private void OnTriggerSpeedInput(InputAction.CallbackContext ctx)
     {
         if(superSpeedAmount <= 0 || m_isInPowerUp) return;
@@ -114,6 +150,38 @@ public class PlayerController : MonoBehaviour
         superSpeedAmount--;
         TriggerSuperSpeed();
     }
+
+    private void TriggerSuperSpeed()
+    {
+        defaultFloatSpeed *= 2f;
+        m_isInPowerUp = true;
+        frontRenderer.sprite = speedBuffed.front;
+        backRenderer.sprite = speedBuffed.back;
+        StartCoroutine(BetterInvoke(3f, () =>
+        {
+            SetDefaultBubble();            
+            defaultFloatSpeed /= 2f;
+            m_isInPowerUp = false;
+        }));
+    }
+
+    private void TriggerInvincibility()
+    {
+        SetInvincible(true);
+        m_isInPowerUp = true;
+        frontRenderer.sprite = shieldBuffed.front;
+        backRenderer.sprite = shieldBuffed.back;
+        StartCoroutine(BetterInvoke(5f, () =>
+        {
+            SetDefaultBubble();
+            SetInvincible(false);
+            m_isInPowerUp = false;
+        }));
+    }
+    
+    #endregion
+
+    #region Actions
 
     private void Attack(InputAction.CallbackContext ctx)
     {
@@ -134,6 +202,10 @@ public class PlayerController : MonoBehaviour
         GameObject tmp = Instantiate(projectilePrefab, transform.position + (Vector3)direction*0.5f, Quaternion.identity);
         tmp.GetComponent<Rigidbody2D>().velocity = direction * projectileSpeed;
     }
+
+    #endregion
+
+    #region MovementUpdate
 
     public void AddPushForce(Vector2 force) => m_lastDirection += force;
 
@@ -165,7 +237,9 @@ public class PlayerController : MonoBehaviour
         m_rigidbody.velocity = m_lastDirection;
     }
 
-    private void SetInvincible(bool invincible) => m_isInvincible = invincible;
+    #endregion
+
+    #region Health
 
     public void LooseHealth(float amount)
     {
@@ -177,16 +251,8 @@ public class PlayerController : MonoBehaviour
     {
         SetInvincible(true);
         
-        movementAction.action.Disable();
-        mouseTargetAction.action.Disable();
-        controllerTargetAction.action.Disable();
-        attackAction.action.Disable();
-        invinPowerUpAction.action.Disable();
-        speedPowerUpAction.action.Disable();
-        attackAction.action.performed -= Attack;
-        invinPowerUpAction.action.performed -= OnTriggerInvincibilityInput;
-        speedPowerUpAction.action.performed -= OnTriggerSpeedInput;
-        
+        DisableInput();
+
         List<Collider2D> tmp = new();
         m_rigidbody.GetAttachedColliders(tmp);
         foreach (Collider2D coll in tmp) coll.enabled = false;
@@ -198,6 +264,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Death");
     }
 
+    
     private IEnumerator WaitForReset()
     {
         Vector3 nextCameraTargetPosition = -cameraTarget.localPosition;
@@ -218,33 +285,7 @@ public class PlayerController : MonoBehaviour
 
     public void TriggerHealing() => m_health += 25f;
 
-    private void TriggerSuperSpeed()
-    {
-        defaultFloatSpeed *= 2f;
-        m_isInPowerUp = true;
-        frontRenderer.sprite = speedBuffed.front;
-        backRenderer.sprite = speedBuffed.back;
-        StartCoroutine(BetterInvoke(3f, () =>
-        {
-            SetDefaultBubble();            
-            defaultFloatSpeed /= 2f;
-            m_isInPowerUp = false;
-        }));
-    }
-
-    private void TriggerInvincibility()
-    {
-        SetInvincible(true);
-        m_isInPowerUp = true;
-        frontRenderer.sprite = shieldBuffed.front;
-        backRenderer.sprite = shieldBuffed.back;
-        StartCoroutine(BetterInvoke(5f, () =>
-        {
-            SetDefaultBubble();
-            SetInvincible(false);
-            m_isInPowerUp = false;
-        }));
-    }
+    #endregion
 
     private static IEnumerator BetterInvoke(float time, Action action)
     {
