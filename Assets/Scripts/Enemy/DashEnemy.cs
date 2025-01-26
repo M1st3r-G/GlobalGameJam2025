@@ -24,7 +24,6 @@ namespace Enemy
         private void Awake()
         {
             m_renderer = GetComponentInChildren<SpriteRenderer>();
-            flipped = transform.localScale.x < 0;
         }
 
         private IEnumerator Start()
