@@ -28,7 +28,7 @@ public class PowerUp: MonoBehaviour
         {
             Type.Shield => shieldSprite,
             Type.SuperSpeed => superSpeedSprite,
-            _ => healSprite,
+            Type.Heal => healSprite,
         };
     }
 

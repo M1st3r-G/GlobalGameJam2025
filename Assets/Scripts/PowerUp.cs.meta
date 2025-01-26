@@ -4,9 +4,9 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - shieldSprite: {fileID: 21300000, guid: 558ae5f6882ac9943841e206a9059d2d, type: 3}
-  - superSpeedSprite: {fileID: 21300000, guid: b68fa42246fb6dd41888dc39074f167d, type: 3}
-  - healSprite: {fileID: 21300000, guid: 5d62c012961709146a9ddd1067192460, type: 3}
+  - shieldSprite: {fileID: 21300000, guid: 890336f3f85801d4289d1bbb0edb904b, type: 3}
+  - superSpeedSprite: {fileID: 21300000, guid: d55b10aa8edf5a64093043011041fd16, type: 3}
+  - healSprite: {fileID: 21300000, guid: 0a2a11b42006dd1448a9b6d22983d5e1, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
