@@ -118,6 +118,6 @@ MonoBehaviour:
   spawnRangeLeft: -5
   followCamera: {fileID: 0}
   waitDelay: 0
-  chapters: 8
+  chapters: 4
   currentProgress: {fileID: 0}
-  checkmark: 0000000001010101
+  checkmark: 01000100
