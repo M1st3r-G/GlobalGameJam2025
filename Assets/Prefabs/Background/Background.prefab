@@ -999,6 +999,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ufo Variant (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6456616960718957186, guid: 2a65719411ab4e34e9fd8ae943bdc240, type: 3}
+      propertyPath: startOffset
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6811059516187378070, guid: 2a65719411ab4e34e9fd8ae943bdc240, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1687,6 +1691,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 315086535488303481, guid: 83abfc1f566c5e348bae9cfdc00a98b9, type: 3}
+      propertyPath: startOffset
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6001974454110167367, guid: 83abfc1f566c5e348bae9cfdc00a98b9, type: 3}
       propertyPath: m_Name
       value: Plane Variant (1)
@@ -1807,6 +1815,10 @@ PrefabInstance:
     - target: {fileID: 1048952326361397948, guid: 2a65719411ab4e34e9fd8ae943bdc240, type: 3}
       propertyPath: m_Name
       value: Ufo Variant (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456616960718957186, guid: 2a65719411ab4e34e9fd8ae943bdc240, type: 3}
+      propertyPath: startOffset
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6811059516187378070, guid: 2a65719411ab4e34e9fd8ae943bdc240, type: 3}
       propertyPath: m_LocalPosition.x

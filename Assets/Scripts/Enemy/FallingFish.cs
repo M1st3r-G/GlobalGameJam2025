@@ -1,27 +1,30 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-public class Fish : MonoBehaviour
+namespace Enemy
 {
-    [SerializeField] private float fishSpeed;
-    private Rigidbody2D m_rb2d;
-
-    private void Awake()
+    [RequireComponent(typeof(Rigidbody2D))]
+    public class Fish : MonoBehaviour
     {
-        m_rb2d = GetComponent<Rigidbody2D>();
-        m_rb2d.AddForce(Vector2.down * fishSpeed, ForceMode2D.Force);
-    }
+        [SerializeField] private float fishSpeed;
+        private Rigidbody2D m_rb2d;
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
+        private void Awake()
         {
-            other.gameObject.GetComponent<PlayerController>().LooseHealth(5);
+            m_rb2d = GetComponent<Rigidbody2D>();
+            m_rb2d.AddForce(Vector2.down * fishSpeed, ForceMode2D.Force);
         }
-    }
 
-    private void OnBecameInvisible()
-    {
-        Destroy(gameObject);
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                other.gameObject.GetComponent<PlayerController>().LooseHealth(5);
+            }
+        }
+
+        private void OnBecameInvisible()
+        {
+            Destroy(gameObject);
+        }
     }
 }

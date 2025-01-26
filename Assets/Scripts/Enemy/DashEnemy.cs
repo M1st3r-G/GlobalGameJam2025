@@ -11,8 +11,8 @@ namespace Enemy
         [SerializeField] private AnimationCurve yOffset = AnimationCurve.Linear(0, 0, 0, 0);
         [SerializeField] private Transform targetStart;
         [SerializeField] private Transform targetEnd;
+        [SerializeField] private float startOffset;
 
-        private Animator m_animator;
         private SpriteRenderer m_renderer;
 
         private bool flipped
@@ -23,18 +23,16 @@ namespace Enemy
         
         private void Awake()
         {
-            m_animator = GetComponent<Animator>();
             m_renderer = GetComponentInChildren<SpriteRenderer>();
             flipped = transform.localScale.x < 0;
         }
 
         private IEnumerator Start()
         {
+            yield return new WaitForSeconds(startOffset);
             while (true)
             {
-                //m_animator.Play("Idle");
                 yield return new WaitForSeconds(idleTime);
-                //m_animator.Play("Flight");
                 float elapsed = 0; // ToDo test
                 while (elapsed / flightTime < 1)
                 {
