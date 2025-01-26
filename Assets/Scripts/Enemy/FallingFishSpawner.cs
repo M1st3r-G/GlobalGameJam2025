@@ -63,7 +63,7 @@ namespace Enemy
                     }
                     //Only Problem: Game Design, so that the Game doesn't crahsh, when the Player reaches the Top.
                 }
-                //yield return null;
+                yield return null;
             }
         }
     }
