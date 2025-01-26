@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,196 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Bathtub_Bubbles_0
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 442
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b65a3c64a6c86b14683f659711ffed95
+      internalID: -849214326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bathtub_Bubbles_1
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 312
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 678b1cc28a24710449f79b48a870edce
+      internalID: 1982904520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bathtub_Bubbles_2
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 313
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50dbceaba4663664097f3ff8e41d20f4
+      internalID: 679758685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bathtub_Bubbles_3
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 322
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e7a813df66946f428f16ae04c194530
+      internalID: 1591341409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bathtub_Bubbles_4
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 252
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c39365fe3854744f89f8bdb4afce0c4
+      internalID: 966680955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bathtub_Bubbles_5
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 242
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1b31f4749e6b9849a4dbe0f79683b95
+      internalID: -46338710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bathtub_Bubbles_6
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 212
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96f87a886da74614e960d7a08674448a
+      internalID: -1845825011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bathtub_Bubbles_7
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 92
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5091dd0dc0cc0d3499435cca89933bbc
+      internalID: -945251544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bathtub_Bubbles_8
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 122
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2743eef2981f0b4dbfd1a529c552b19
+      internalID: -103946970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +321,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bathtub_Bubbles_0: -849214326
+      Bathtub_Bubbles_1: 1982904520
+      Bathtub_Bubbles_2: 679758685
+      Bathtub_Bubbles_3: 1591341409
+      Bathtub_Bubbles_4: 966680955
+      Bathtub_Bubbles_5: -46338710
+      Bathtub_Bubbles_6: -1845825011
+      Bathtub_Bubbles_7: -945251544
+      Bathtub_Bubbles_8: -103946970
+      Bathtub_Bubbles_9: 975854530
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
