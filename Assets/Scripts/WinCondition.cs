@@ -21,7 +21,7 @@ public class WinCondition : MonoBehaviour
     {
         yield return new WaitUntil(()=>progressBar.progress >= 1f);
         Time.timeScale = 0f;
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSecondsRealtime(10f);
         SceneManager.LoadScene(0);
     }
 }
