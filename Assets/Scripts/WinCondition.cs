@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UI;
 using UnityEngine;
@@ -11,13 +9,15 @@ public class WinCondition : MonoBehaviour
     [SerializeField] private TimeManager timeManager;
     [SerializeField] private ProgressBar progressBar;
     [SerializeField] private TextMeshProUGUI timerText;
-
+    [SerializeField] private PlayerController player;
+    
+    
     private void Update()
     {
         timerText.text = $"{timeManager.timeTaken[0]} : {timeManager.timeTaken[1]} : {timeManager.timeTaken[2]}";
     }
 
-    IEnumerator Start()
+    private IEnumerator Start()
     {
         yield return new WaitUntil(()=>progressBar.progress >= 1f);
         Time.timeScale = 0f;
@@ -25,6 +25,8 @@ public class WinCondition : MonoBehaviour
         PlayerPrefs.SetInt("h", timeManager.timeTaken[0]);
         PlayerPrefs.SetInt("m", timeManager.timeTaken[1]);
         PlayerPrefs.SetInt("s", timeManager.timeTaken[2]);
+        player.DisableInput();
+        Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
 }

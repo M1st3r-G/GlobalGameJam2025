@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour
         speedPowerUpAction.action.performed += OnTriggerSpeedInput;
     }
 
-    private void DisableInput()
+    public void DisableInput()
     {
         movementAction.action.Disable();
         mouseTargetAction.action.Disable();
