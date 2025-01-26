@@ -29,10 +29,7 @@ public class PlaySoundOnParticleDeath : MonoBehaviour
         }
     }
 
-    private void OnBecameInvisible()
-    {
-        StartCoroutine(FadeOut());
-    }
+    private void OnBecameInvisible() => StartCoroutine(FadeOut());
 
     private IEnumerator FadeOut()
     {
