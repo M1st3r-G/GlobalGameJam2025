@@ -24,13 +24,11 @@ namespace Enemy
         {
             StartCoroutine(SpawnFallingFish());
             StartCoroutine(SpawnWait());
-
         }
 
         private void Update()
         {
             m_rndPos = Random.Range(spawnRangeLeft, spawnRangeRight);
-            print(shootDelay);
         }
 
         private IEnumerator SpawnFallingFish()
