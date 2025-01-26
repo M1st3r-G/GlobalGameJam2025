@@ -9,7 +9,7 @@ public class TimeManager : MonoBehaviour
     {
         get
         {
-            float deltaSeconds = m_startTime - Time.time;
+            float deltaSeconds = Time.time - m_startTime;
             int hours = (int)(deltaSeconds / 3600f);
             deltaSeconds -= hours * 3600;
             int minutes = (int)(deltaSeconds / 60f);
