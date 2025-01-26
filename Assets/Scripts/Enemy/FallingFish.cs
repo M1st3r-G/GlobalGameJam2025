@@ -1,14 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Fish : MonoBehaviour
 {
     [SerializeField] private float fishSpeed;
-    [SerializeField] private PlayerController player;
     private Rigidbody2D m_rb2d;
 
     private void Awake()
@@ -19,7 +14,10 @@ public class Fish : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        player.LooseHealth(5);
+        if (other.gameObject.CompareTag("Player"))
+        {
+            other.gameObject.GetComponent<PlayerController>().LooseHealth(5);
+        }
     }
 
     private void OnBecameInvisible()

@@ -167,8 +167,6 @@ GameObject:
   m_Component:
   - component: {fileID: 419229311385640661}
   - component: {fileID: 4349730882456869088}
-  - component: {fileID: 1948487764690479822}
-  - component: {fileID: 3553449903595952462}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -195,7 +193,6 @@ Transform:
   - {fileID: 8762479718064560537}
   - {fileID: 2734485185880558667}
   - {fileID: 4669220160523116814}
-  - {fileID: 9009598711845969319}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4349730882456869088
@@ -250,46 +247,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &1948487764690479822
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4851196104011241947}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 5
---- !u!114 &3553449903595952462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4851196104011241947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05df0bd496560d4419614f587d034ec0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
 --- !u!1 &5253679007619728050
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,68 +1172,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1614800008687346379, guid: 60d6832d67613844b86327b250ff3350, type: 3}
   m_PrefabInstance: {fileID: 3723695393621083822}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &4121008136091030812
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 419229311385640661}
-    m_Modifications:
-    - target: {fileID: 4915755254451407035, guid: 7bf11d55c0c3c4141b3b94624b51729a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 4915755254451407035, guid: 7bf11d55c0c3c4141b3b94624b51729a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 29.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4915755254451407035, guid: 7bf11d55c0c3c4141b3b94624b51729a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4915755254451407035, guid: 7bf11d55c0c3c4141b3b94624b51729a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4915755254451407035, guid: 7bf11d55c0c3c4141b3b94624b51729a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4915755254451407035, guid: 7bf11d55c0c3c4141b3b94624b51729a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4915755254451407035, guid: 7bf11d55c0c3c4141b3b94624b51729a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4915755254451407035, guid: 7bf11d55c0c3c4141b3b94624b51729a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4915755254451407035, guid: 7bf11d55c0c3c4141b3b94624b51729a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4915755254451407035, guid: 7bf11d55c0c3c4141b3b94624b51729a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7582793256159808322, guid: 7bf11d55c0c3c4141b3b94624b51729a, type: 3}
-      propertyPath: m_Name
-      value: FallingFishSpawner
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7bf11d55c0c3c4141b3b94624b51729a, type: 3}
---- !u!4 &9009598711845969319 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4915755254451407035, guid: 7bf11d55c0c3c4141b3b94624b51729a, type: 3}
-  m_PrefabInstance: {fileID: 4121008136091030812}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4127186931822472464
 PrefabInstance:
