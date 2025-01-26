@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4915755254451407035}
   - component: {fileID: 4768733481146718921}
+  - component: {fileID: 6139882614037180440}
   - component: {fileID: 5969397641396897462}
   m_Layer: 0
   m_Name: FallingFishSpawner
@@ -17,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4915755254451407035
 Transform:
   m_ObjectHideFlags: 0
@@ -85,6 +86,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6139882614037180440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7582793256159808322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74c2dfa818f4aa54b870db013f8bed5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followCamera: {fileID: 0}
+  spawnHeight: 7
 --- !u!114 &5969397641396897462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,12 +112,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f5ca27c9f5de86428800c6fa48958fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followCamera: {fileID: 0}
   fallingFish: {fileID: 2095999334621853864, guid: 27ee4a4b03be17f42bcb6d7b27f43db2, type: 3}
-  shootDelay: 1
+  shootDelay: 3
   spawnRangeRight: 5
   spawnRangeLeft: -5
-  spawnHeight: 7
+  followCamera: {fileID: 0}
   waitDelay: 0
   chapters: 8
   currentProgress: {fileID: 0}
