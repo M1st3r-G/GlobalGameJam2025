@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Jobs;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -184,6 +183,9 @@ public class PlayerController : MonoBehaviour
         attackAction.action.Disable();
         invinPowerUpAction.action.Disable();
         speedPowerUpAction.action.Disable();
+        attackAction.action.performed -= Attack;
+        invinPowerUpAction.action.performed -= OnTriggerInvincibilityInput;
+        speedPowerUpAction.action.performed -= OnTriggerSpeedInput;
         
         List<Collider2D> tmp = new();
         m_rigidbody.GetAttachedColliders(tmp);
@@ -192,17 +194,17 @@ public class PlayerController : MonoBehaviour
         frontRenderer.enabled = false;
         backRenderer.enabled = false;
         
-        cameraTarget.localPosition *= -1f;
-        
         StartCoroutine(WaitForReset());
         Debug.Log("Death");
     }
 
     private IEnumerator WaitForReset()
     {
+        Vector3 nextCameraTargetPosition = -cameraTarget.localPosition;
         while (transform.position.y > resetHeight)
         {
             m_lastDirection += (new Vector2(0, resetHeight) - (Vector2)transform.position).normalized * Time.deltaTime;
+            if(m_lastDirection.y < 0)cameraTarget.localPosition = nextCameraTargetPosition;
             yield return null;
         }
 
