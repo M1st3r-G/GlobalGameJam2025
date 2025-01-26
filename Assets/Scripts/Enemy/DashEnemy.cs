@@ -17,8 +17,8 @@ namespace Enemy
 
         private bool flipped
         {
-            get => m_renderer.flipY; // Later x
-            set => m_renderer.flipY = value;
+            get => m_renderer.flipX;
+            set => m_renderer.flipX = value;
         }
         
         private void Awake()
