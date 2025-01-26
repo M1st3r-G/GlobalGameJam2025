@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace Enemy
 {
-    [RequireComponent(typeof(Animator))] // SpriteRenderer
     public class DashEnemy : MonoBehaviour
     {
         [SerializeField] private float damage = 10;
