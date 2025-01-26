@@ -22,6 +22,9 @@ public class WinCondition : MonoBehaviour
         yield return new WaitUntil(()=>progressBar.progress >= 1f);
         Time.timeScale = 0f;
         yield return new WaitForSecondsRealtime(10f);
+        PlayerPrefs.SetInt("h", timeManager.timeTaken[0]);
+        PlayerPrefs.SetInt("m", timeManager.timeTaken[1]);
+        PlayerPrefs.SetInt("s", timeManager.timeTaken[2]);
         SceneManager.LoadScene(0);
     }
 }
