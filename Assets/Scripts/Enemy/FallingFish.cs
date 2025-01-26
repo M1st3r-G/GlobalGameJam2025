@@ -14,7 +14,7 @@ namespace Enemy
             m_rb2d.AddForce(Vector2.down * fishSpeed, ForceMode2D.Force);
         }
 
-        private void OnCollisionEnter2D(Collision2D other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.CompareTag("Player"))
             {
