@@ -45,6 +45,7 @@ public class Dialog : MonoBehaviour
             
                 yield return new WaitUntil(() => dialogSlider.value >= 0.125f * (i + 1));
                 dialogText.text = dialog[i];
+                yield return new WaitUntil(() => dialogSlider.value >= 0.125f * (9 + 1));
             }
 
             yield return null;
