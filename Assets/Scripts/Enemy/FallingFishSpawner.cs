@@ -31,7 +31,6 @@ namespace Enemy
         private void Update()
         {
             m_rndPos = Random.Range(spawnRangeLeft, spawnRangeRight);
-            print($"{m_canSpawn}");
         }
 
         private IEnumerator SpawnFallingFish()
